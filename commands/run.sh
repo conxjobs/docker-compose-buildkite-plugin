@@ -173,7 +173,7 @@ fi
 # Start up service dependencies in a different header to keep the main run with less noise
 if [[ "$(plugin_read_config DEPENDENCIES "true")" == "true" ]] ; then
   echo "~~~ :docker: bringing the service down"
-  docker-compose  "${up_params[@]}" down
+  cd /app && docker-compose -f docker-compose.yml.buildkite.test "${up_params[@]}" down
   echo "~~~ :docker: bringing the service back up"  
   echo "~~~ :docker: Starting dependencies"
   if [[ ${#up_params[@]} -gt 0 ]] ; then
