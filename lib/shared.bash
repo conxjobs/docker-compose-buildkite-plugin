@@ -179,6 +179,8 @@ function run_docker_compose() {
     command+=(--verbose)
   fi
 
+  command+=(--force-recreate)
+  
   for file in $(docker_compose_config_files) ; do
     command+=(-f "$file")
   done
