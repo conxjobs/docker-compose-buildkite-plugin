@@ -178,8 +178,6 @@ function run_docker_compose() {
   if [[ "$(plugin_read_config VERBOSE "false")" == "true" ]] ; then
     command+=(--verbose)
   fi
-
-  command+=(--force-recreate)
   
   for file in $(docker_compose_config_files) ; do
     command+=(-f "$file")
